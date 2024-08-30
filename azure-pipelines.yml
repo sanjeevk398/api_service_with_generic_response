@@ -24,12 +24,24 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
+- task: CopyFiles@2
+  inputs:
+    contents: 'target/*.jar'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy Files to Artifact Staging Directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+  displayName: 'Publish Artifact'
+
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Free Trial(52bf95d5-234b-47ac-8bb7-cda36aee5e5e)'
     appType: 'webAppLinux'
-    WebAppName: 'azure-spring-app'
+    WebAppName: 'endpoints-0.0.1-SNAPSHOT'
     deployToSlotOrASE: true
     ResourceGroupName: 'azure-apring-app-group'
     SlotName: 'production'
