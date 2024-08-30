@@ -41,7 +41,7 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Free Trial(52bf95d5-234b-47ac-8bb7-cda36aee5e5e)'
     appType: 'webAppLinux'
-    WebAppName: 'endpoints-0.0.1-SNAPSHOT'
+    WebAppName: 'azure-spring-app-service'
     deployToSlotOrASE: true
     ResourceGroupName: 'azure-apring-app-group'
     SlotName: 'production'
