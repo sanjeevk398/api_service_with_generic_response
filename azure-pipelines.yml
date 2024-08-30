@@ -23,3 +23,14 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(52bf95d5-234b-47ac-8bb7-cda36aee5e5e)'
+    appType: 'webAppLinux'
+    WebAppName: 'azure-spring-app'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'azure-apring-app-group'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.jar'
