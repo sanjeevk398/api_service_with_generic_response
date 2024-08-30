@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
   demands:
-  - agent.name -equals {your-agent-name}
+  - agent.name -equals default
 
 steps:
 - task: Maven@4
