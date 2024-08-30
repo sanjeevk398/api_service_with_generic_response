@@ -13,9 +13,9 @@ pool:
      - Agent.Name -equals my_agent_machine
 
 steps:
-- task: Maven@4
+- task: Maven@3
   inputs:
-    mavenPomFile: '$(system.defaultWorkingDirectory)/spring-app/pom.xml'
+    mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '21'
